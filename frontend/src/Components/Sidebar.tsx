@@ -8,12 +8,14 @@ import { HiMenuAlt2 } from 'react-icons/hi'
 import { MdCloseFullscreen } from 'react-icons/md'
 import { ImCancelCircle } from 'react-icons/im'
 
+import { Discover, Footer, SuggestedAccounts } from './Index'
+
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true)
   const { pathname } = useRouter()
 
   const activeLink =
-    'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#aaa] rounded'
+    'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-blue-700 rounded'
 
   const normalLink =
     'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold rounded'
@@ -39,6 +41,10 @@ const Sidebar = () => {
               </div>
             </Link>
           </div>
+
+          <Discover />
+          <SuggestedAccounts />
+          <Footer />
         </div>
       )}
     </div>

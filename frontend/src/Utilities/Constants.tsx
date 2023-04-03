@@ -73,15 +73,13 @@ export const FooterList1 = [
   'Store',
   'Contact',
   'Careers',
-  'ByteDance',
   'Creator Directory',
 ]
 export const FooterList2 = [
-  'Soft-Media for Good',
   'Advertise',
   'Developers',
   'Transparency',
-  'TikTik Rewards',
+  'Soft-Media 2.0 Rewards',
 ]
 export const FooterList3 = [
   'Help',
