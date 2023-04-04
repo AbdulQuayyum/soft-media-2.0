@@ -1,6 +1,6 @@
 import { BsCode, BsEmojiSunglasses, BsCamera2 } from 'react-icons/bs'
 import { GiCakeSlice, GiGalaxy, GiHollowCat } from 'react-icons/gi'
-import { FaPaw, FaMedal, FaGamepad, FaStarAndCrescent } from 'react-icons/fa'
+import { FaPaw, FaMedal, FaGamepad, FaStarAndCrescent, FaRegLaughSquint } from 'react-icons/fa'
 import { MdPermMedia, MdLibraryMusic, MdEmojiNature, MdOutlineVideoCameraBack } from 'react-icons/md'
 import { SlPicture } from 'react-icons/sl'
 
@@ -48,6 +48,10 @@ export const Topics = [
   {
     name: 'comedy',
     icon: <BsEmojiSunglasses />,
+  },
+  {
+    name: 'memes',
+    icon: <FaRegLaughSquint />,
   },
   {
     name: 'gaming',
