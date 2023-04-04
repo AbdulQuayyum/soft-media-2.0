@@ -5,6 +5,6 @@ export const Client = createClient({
   dataset: 'production',
   ignoreBrowserTokenWarning: true,
   token: process.env.NEXT_SANITY_TOKEN,
-  projectId: process.env.NEXT_SANITY_PROJECT_ID,
+  projectId: process.env.NEXT_SANITY_PROJECTID,
   useCdn: true,
 })
