@@ -10,7 +10,7 @@ export default {
         },
         {
             name: 'UserID',
-            title: 'UserId',
+            title: 'UserID',
             type: 'string',
         },
     ],

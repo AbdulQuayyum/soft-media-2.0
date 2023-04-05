@@ -97,11 +97,12 @@ const Navbar = () => {
           </div>
         ) : (
           <GoogleLogin
-            onSuccess={(response) => 
-              CreateOrGetUser(response, AddUser)
-              // console.log(response)
-            }
+            onSuccess={(response) => CreateOrGetUser(response, AddUser)}
             onError={() => console.log('Login Failed')}
+            shape="circle"
+            size="large"
+            text="continue_with"
+            theme="filled_black"
           />
         )}
       </div>

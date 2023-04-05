@@ -38,7 +38,7 @@ export const AllPostsQuery = () => {
 }
 
 export const PostDetailQuery = (PostID: string | string[]) => {
-  const query = `*[_type == "post" && _id == '${PostID}']{
+  const query = `*[_type == "Post" && _id == '${PostID}']{
     _id,
      Caption,
        Video{
