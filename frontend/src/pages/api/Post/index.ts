@@ -14,11 +14,11 @@ export default async function handler(
 
     res.status(200).json(data)
   } 
-  // else if (req.method === 'POST') {
-  //   const doc = req.body
+  else if (req.method === 'POST') {
+    const doc = req.body
 
-  //   Client.create(doc).then(() => {
-  //     res.status(200).json('Video created')
-  //   })
-  // }
+    Client.create(doc).then(() => {
+      res.status(200).json('Video created')
+    })
+  }
 }

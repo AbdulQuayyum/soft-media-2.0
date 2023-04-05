@@ -83,7 +83,7 @@ const Navbar = () => {
           </div>
         ) : (
           <GoogleLogin
-            onSuccess={(response) => console.log(response)}
+            onSuccess={(response) => CreateOrGetUser(response)}
             onError={() => console.log('Login Failed')}
           />
         )}
