@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-export const CreateOrGetUser = async (response: any, addUser: any) => {
+export const CreateOrGetUser = async (response: any, AddUser: any) => {
   var base64Url = response.credential.split('.')[1];
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
   var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -11,14 +11,14 @@ export const CreateOrGetUser = async (response: any, addUser: any) => {
   
   const { name, picture, sub } = JSON.parse(jsonPayload)
   
-  const user = {
+  const User = {
     _id: sub,
-    _type: 'user',
-    userName: name,
-    image: picture,
+    _type: 'User',
+    UserName: name,
+    Image: picture,
   };
   
-  addUser(user);
+  AddUser(User);
 
-  await axios.post(`${BASE_URL}/api/Auth`, user);
+  await axios.post(`${BASE_URL}/api/Auth`, User);
 };
