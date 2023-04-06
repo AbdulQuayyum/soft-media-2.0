@@ -11,10 +11,16 @@ export default async function handler(
       const User = req.body
 
       Client.createIfNotExists(User).then(() => {
-        res.status(200).json('Login successful')
+        return res.status(200).json('Login successful')
       })
     }
   } catch (err) {
-    res.status(500).json({ error: 'failed to load data' })
+    return res.status(500).json({ error: 'failed to load data' })
   }
+}
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 }

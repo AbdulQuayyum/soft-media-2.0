@@ -12,13 +12,18 @@ export default async function handler(
 
     const data = await Client.fetch(query)
 
-    res.status(200).json(data)
-  } 
-  else if (req.method === 'POST') {
+    return res.status(200).json(data)
+  } else if (req.method === 'POST') {
     const doc = req.body
 
     Client.create(doc).then(() => {
-      res.status(200).json('Video created')
+      return res.status(200).json('Video created')
     })
   }
+}
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 }
