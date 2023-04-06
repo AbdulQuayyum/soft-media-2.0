@@ -9,10 +9,12 @@ import { MdCloseFullscreen } from 'react-icons/md'
 import { ImCancelCircle } from 'react-icons/im'
 
 import { Discover, Footer, SuggestedAccounts } from './Index'
+import UseAuthStore from '../Store/AuthStore'
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true)
   const { pathname } = useRouter()
+  const { FetchAllUsers, AllUsers }: any = UseAuthStore()
 
   const activeLink =
     'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-blue-700 rounded'
@@ -43,7 +45,10 @@ const Sidebar = () => {
           </div>
 
           <Discover />
-          <SuggestedAccounts />
+          <SuggestedAccounts
+            FetchAllUsers={FetchAllUsers}
+            AllUsers={AllUsers}
+          />
           <Footer />
         </div>
       )}
