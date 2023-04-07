@@ -7,13 +7,19 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  if (req.method === 'GET') {
-    const { Topic } = req.query
+  try {
+    if (req.method === 'GET') {
+      const { Topic } = req.query
 
-    const VideosQuery = TopicPostsQuery(Topic)
+      const VideosQuery = TopicPostsQuery(Topic)
 
-    const Videos = await Client.fetch(VideosQuery)
+      const Videos = await Client.fetch(VideosQuery)
 
-    res.status(200).json(Videos)
+      res.status(200).json(Videos)
+      res.end()
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'failed to load data' })
+    res.end()
   }
 }

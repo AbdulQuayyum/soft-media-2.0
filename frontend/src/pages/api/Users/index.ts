@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { AllUsersQuery } from '../../Utilities/Queries'
-import { Client } from '../../Utilities/Client'
+import { AllUsersQuery } from '../../../Utilities/Queries'
+import { Client } from '../../../Utilities/Client'
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,7 +9,7 @@ export default async function handler(
 ) {
   const data = await Client.fetch(AllUsersQuery())
 
-  console.log(data)
+  // console.log(data)
 
   if (data) {
     res.status(200).json(data)

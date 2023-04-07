@@ -4,7 +4,6 @@ import Head from 'next/head'
 
 import { BASE_URL } from '../Utilities/Index'
 import { NoResults, VideoCard } from '../Components/Index'
-import { NextPage } from 'next'
 import { Video } from '../../types'
 
 interface IProps {
@@ -25,7 +24,7 @@ const Home = ({ Videos }: IProps) => {
         <link rel="shortcut icon" href="/logo.png" />
       </Head>
       <div className="flex flex-col gap-10 videos h-full">
-        {Videos.length ? (
+        {Videos?.length ? (
           Videos?.map((Video: Video) => (
             <VideoCard Post={Video} isShowingOnHome key={Video._id} />
           ))
@@ -44,12 +43,12 @@ export const getServerSideProps = async ({
 }) => {
   let response = await axios.get(`${BASE_URL}/api/Post`)
 
-  // if(Topic) {
-  //   response = await axios.get(`${BASE_URL}/api/Discover/${Topic}`);
-  // }
+  if(Topic) {
+    response = await axios.get(`${BASE_URL}/api/Discover/${Topic}`);
+  }
 
   return {
-    props: { videos: response.data },
+    props: { Videos: response.data },
   }
 }
 
