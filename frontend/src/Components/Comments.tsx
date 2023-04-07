@@ -50,7 +50,6 @@ const Comments = ({
                               className="rounded-full cursor-pointer"
                               src={user.Image}
                               alt="user-profile"
-                              layout="responsive"
                             />
                           </div>
 

@@ -36,7 +36,6 @@ const SuggestedAccounts: NextPage<IProps> = ({ FetchAllUsers, AllUsers }) => {
                   className='rounded-full'
                   src={User.Image}
                   alt='User-profile'
-                  layout='responsive'
                 />
               </div>
 
