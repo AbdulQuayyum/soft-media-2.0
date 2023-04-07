@@ -6,18 +6,28 @@ import { Navbar, Sidebar } from '../Components/Index'
 import '../Styles/Index.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const [isServerSideRendering, setIsSeverSideRendering] = useState(true)
+  // const [isServerSideRendering, setIsSeverSideRendering] = useState(true)
+
+  // useEffect(() => {
+  //   setIsSeverSideRendering(false)
+  // })
+
+  // if (isServerSideRendering) return null
+
+  const [isSSR, setIsSSR] = useState(true)
 
   useEffect(() => {
-    setIsSeverSideRendering(false)
-  })
+    setIsSSR(false)
+  }, [])
 
-  if (isServerSideRendering) return null
+  if (isSSR) return null
 
   // console.log(process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN)
 
   return (
-    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
+    <GoogleOAuthProvider
+      clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
+    >
       <div className="xl:w-[1200px] m-auto overflow-hidden h-[100vh]">
         <Navbar />
         <div className="flex gap-6 md:gap-20 ">

@@ -8,9 +8,9 @@ export default async function handler(
 ) {
   try {
     if (req.method === 'POST') {
-      const doc = req.body
+      const User = req.body
 
-      Client.createIfNotExists(doc).then(() => {
+      Client.createIfNotExists(User).then(() => {
         res.status(200).json('Login successful')
         res.end()
       })
