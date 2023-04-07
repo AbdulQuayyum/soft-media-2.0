@@ -4,6 +4,8 @@ import { useRouter } from 'next/router'
 import { FaCloudUploadAlt } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
 import axios from 'axios'
+import cogoToast from 'cogo-toast'
+import Select from 'react-select'
 
 import { BASE_URL } from '../Utilities/Index'
 import { Client } from '../Utilities/Client'
@@ -12,7 +14,7 @@ import UseAuthStore from '../Store/AuthStore'
 
 const Upload = () => {
   const [Caption, setCaption] = useState('')
-  const [Topic, setTopic] = useState<String>(Topics[0].name)
+  const [Topic, setTopic] = useState<String>()
   const [loading, setLoading] = useState<Boolean>(false)
   const [savingPost, setSavingPost] = useState<Boolean>(false)
   const [videoAsset, setVideoAsset] = useState<
@@ -26,6 +28,18 @@ const Upload = () => {
   useEffect(() => {
     if (!UserProfile) router.push('/')
   }, [UserProfile, router])
+
+  const customStyles = {
+    control: (provided: any) => ({
+      ...provided,
+      cursor: 'pointer',
+      background: '#F7F7F7',
+      borderColor: 'transparent',
+      borderRadius: '12px',
+      minHeight: '48px',
+      padding: '0px 10px',
+    }),
+  }
 
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0]
@@ -44,6 +58,13 @@ const Upload = () => {
         .then((data) => {
           setVideoAsset(data)
           setLoading(false)
+        })
+        .catch((error) => {
+          cogoToast.error('upload failed, please try again', {
+            position: 'top-right',
+            heading: 'Error',
+          })
+          console.log('Upload failed:', error.message)
         })
     } else {
       setLoading(false)
@@ -171,7 +192,7 @@ const Upload = () => {
           />
           <label className="text-md font-medium ">Choose a Topic</label>
 
-          <select
+          {/* <select
             onChange={(e) => {
               setTopic(e.target.value)
             }}
@@ -186,7 +207,19 @@ const Upload = () => {
                 {item.name}
               </option>
             ))}
-          </select>
+          </select> */}
+          <Select
+            className="py-2"
+            styles={customStyles}
+            placeholder="Select Topic"
+            options={Topics}
+            value={Topic?.name}
+            getOptionLabel={(Topics) => Topics.name}
+            getOptionValue={(Topics) => Topics.name}
+            onChange={(e) => {
+              setTopic(e?.name)
+            }}
+          />
           <div className="flex gap-6 mt-10">
             <button
               onClick={handleDiscard}
