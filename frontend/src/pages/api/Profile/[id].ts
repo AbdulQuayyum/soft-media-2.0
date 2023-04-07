@@ -25,5 +25,12 @@ export default async function handler(
     const data = { User: User[0], UserVideos, UserLikedVideos }
 
     res.status(200).json(data)
+    res.end()
   }
+}
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 }

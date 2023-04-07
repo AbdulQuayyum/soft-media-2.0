@@ -25,6 +25,7 @@ export default async function handler(
           .commit()
 
     res.status(200).json(data)
+    res.end()
   }
 }
 

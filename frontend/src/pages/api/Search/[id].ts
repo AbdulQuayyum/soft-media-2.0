@@ -15,5 +15,12 @@ export default async function handler(
     const Videos = await Client.fetch(VideosQuery)
 
     res.status(200).json(Videos)
+    res.end()
   }
+}
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 }

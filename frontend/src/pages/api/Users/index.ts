@@ -13,7 +13,15 @@ export default async function handler(
 
   if (data) {
     res.status(200).json(data)
+    res.end()
   } else {
     res.json([])
+    res.end()
   }
+}
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 }
