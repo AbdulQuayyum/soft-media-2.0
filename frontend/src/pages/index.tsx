@@ -36,6 +36,8 @@ const Home = ({ Videos }: IProps) => {
   )
 }
 
+export default Home
+
 export const getServerSideProps = async ({
   query: { Topic },
 }: {
@@ -43,13 +45,11 @@ export const getServerSideProps = async ({
 }) => {
   let response = await axios.get(`${BASE_URL}/api/Post`)
 
-  if(Topic) {
-    response = await axios.get(`${BASE_URL}/api/Discover/${Topic}`);
+  if (Topic) {
+    response = await axios.get(`${BASE_URL}/api/Discover/${Topic}`)
   }
 
   return {
     props: { Videos: response.data },
   }
 }
-
-export default Home
