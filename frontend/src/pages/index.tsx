@@ -11,7 +11,6 @@ interface IProps {
 }
 
 const Home = ({ Videos }: IProps) => {
-  // console.log(videos)
   return (
     <>
       <Head>
