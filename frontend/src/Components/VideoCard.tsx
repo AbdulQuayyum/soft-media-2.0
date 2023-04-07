@@ -10,12 +10,12 @@ import { BsPlay } from 'react-icons/bs'
 import { Video } from '../../types'
 
 interface IProps {
-  post: Video
+  Post: Video
   isShowingOnHome?: boolean
 }
 
 const VideoCard: NextPage<IProps> = ({
-  post: { Caption, PostedBy, Video, _id, Likes },
+  Post: { Caption, PostedBy, Video, _id, Likes },
   isShowingOnHome,
 }) => {
   const [playing, setPlaying] = useState(false)

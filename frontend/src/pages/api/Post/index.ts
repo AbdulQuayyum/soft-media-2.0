@@ -12,12 +12,14 @@ export default async function handler(
 
     const data = await Client.fetch(query)
 
-    return res.status(200).json(data)
+    res.status(200).json(data)
+    res.end()
   } else if (req.method === 'POST') {
     const doc = req.body
 
     Client.create(doc).then(() => {
-      return res.status(200).json('Video created')
+      res.status(200).json('Video created')
+      res.end()
     })
   }
 }

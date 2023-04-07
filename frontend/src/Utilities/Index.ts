@@ -25,5 +25,5 @@ export const CreateOrGetUser = async (response: any, AddUser: any) => {
 
   AddUser(User)
 
-  await axios.post('http://localhost:3000/api/Auth', User)
+  await axios.post(`${BASE_URL}/api/Auth`, User)
 }
