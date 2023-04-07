@@ -17,8 +17,10 @@ export const CreateOrGetUser = async (response: any, AddUser: any) => {
 
   // const { name, picture, sub } = JSON.parse(jsonPayload)
 
-  const decoded = jwt_decode(response.credential)
-  localStorage.setItem("User", JSON.stringify(decoded))
+  const decoded: { name: string; picture: string; sub: string } = jwt_decode(
+    response.credential,
+  )
+  localStorage.setItem('User', JSON.stringify(decoded))
   const { name, picture, sub } = decoded
 
   const User = {
