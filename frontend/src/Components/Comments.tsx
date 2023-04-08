@@ -38,24 +38,27 @@ const Comments = ({
           Comments?.map((item: IComment, idx: number) => (
             <>
               {AllUsers?.map(
-                (user: IUser) =>
-                  user._id === (item.PostedBy._ref || item.PostedBy._id) && (
+                (User: IUser) =>
+                  User._id === (item.PostedBy._ref || item.PostedBy._id) && (
                     <div className=" p-2 items-center" key={idx}>
-                      <Link href={`/profile/${user._id}`}>
+                      <Link href={`/profile/${User._id}`}>
                         <div className="flex items-start gap-3">
                           <div className="w-12 h-12">
                             <Image
                               width={48}
                               height={48}
                               className="rounded-full cursor-pointer"
-                              src={user.Image}
-                              alt="user-profile"
+                              src={User.Image}
+                              alt="User-profile"
                             />
                           </div>
 
                           <p className="flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-primary">
-                            {user.UserName}{' '}
-                            <GoVerified className="text-blue-400" />
+                            {User.UserName}{' '}
+                            {/* <GoVerified className="text-blue-400" /> */}
+                            {User.UserName === 'Abdul-Quayyum' ? (
+                              <GoVerified className="text-blue-400" />
+                            ) : null}
                           </p>
                         </div>
                       </Link>
