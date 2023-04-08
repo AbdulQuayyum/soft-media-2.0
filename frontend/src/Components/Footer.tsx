@@ -16,13 +16,15 @@ const List = ({ items, mt }: { items: string[]; mt: Boolean }) => (
   </div>
 )
 
-const Footer = () => {
+const Footer: NextPage = () => {
   return (
     <div className="mt-6 hidden xl:block">
       <List items={FooterList1} mt={false} />
       <List items={FooterList2} mt />
       <List items={FooterList3} mt />
-      <p className="text-gray-400 text-sm mt-5">Copyright © {new Date().getFullYear()} Soft-Media 2.0</p>
+      <p className="text-gray-400 text-sm mt-5">
+        Copyright © {new Date().getFullYear()} Soft-Media 2.0
+      </p>
     </div>
   )
 }

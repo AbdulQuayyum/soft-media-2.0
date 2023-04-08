@@ -11,7 +11,7 @@ import { ImCancelCircle } from 'react-icons/im'
 import { Discover, Footer, SuggestedAccounts } from './Index'
 import UseAuthStore from '../Store/AuthStore'
 
-const Sidebar = () => {
+const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState(true)
   const { pathname } = useRouter()
   const { FetchAllUsers, AllUsers }: any = UseAuthStore()

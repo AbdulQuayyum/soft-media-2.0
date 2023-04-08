@@ -12,8 +12,8 @@ export default async function handler(
 
     const data = Like
       ? await Client.patch(PostID)
-          .setIfMissing({ likes: [] })
-          .insert('after', 'likes[-1]', [
+          .setIfMissing({ Likes: [] })
+          .insert('after', 'Likes[-1]', [
             {
               _key: uuid(),
               _ref: UserID,

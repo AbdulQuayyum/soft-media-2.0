@@ -7,7 +7,7 @@ import axios from 'axios'
 
 import { BASE_URL } from '../../Utilities/Index'
 import { IUser, Video } from '../../../types'
-import { NoResults, VideoCard } from '../../Components//Index'
+import { NoResults, VideoCard } from '../../Components/Index'
 import UseAuthStore from '../../Store/AuthStore'
 
 const Search = ({ Videos }: { Videos: Video[] }) => {
