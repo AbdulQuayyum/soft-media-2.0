@@ -15,12 +15,12 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
   const { AllUsers }: { AllUsers: IUser[] } = UseAuthStore()
 
   const router = useRouter()
-  const { searchTerm }: any = router.query
+  const { SearchTerm }: any = router.query
 
   const accounts = isAccounts ? 'border-b-2 border-black' : 'text-gray-400'
   const isVideos = !isAccounts ? 'border-b-2 border-black' : 'text-gray-400'
   const searchedAccounts = AllUsers?.filter((User: IUser) =>
-    User.UserName.toLowerCase().includes(searchTerm),
+    User.UserName.toLowerCase().includes(SearchTerm),
   )
 
   return (
@@ -72,7 +72,7 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
               </Link>
             ))
           ) : (
-            <NoResults text={`No Account Results for ${searchTerm}`} />
+            <NoResults text={`No Account Results for ${SearchTerm}`} />
           )}
         </div>
       ) : (
@@ -82,7 +82,7 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
               <VideoCard Post={Post} key={idx} />
             ))
           ) : (
-            <NoResults text={`No Video Results for ${searchTerm}`} />
+            <NoResults text={`No Video Results for ${SearchTerm}`} />
           )}
         </div>
       )}
@@ -91,11 +91,11 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
 }
 
 export const getServerSideProps = async ({
-  params: { searchTerm },
+  params: { SearchTerm },
 }: {
-  params: { searchTerm: string }
+  params: { SearchTerm: string }
 }) => {
-  const res = await axios.get(`${BASE_URL}/api/Search/${searchTerm}`)
+  const res = await axios.get(`${BASE_URL}/api/Search/${SearchTerm}`)
 
   return {
     props: { Videos: res.data },
