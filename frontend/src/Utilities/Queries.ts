@@ -202,8 +202,8 @@ export const UserLikedPostsQuery = (UserID: string | string[]) => {
   return query
 }
 
-export const TopicPostsQuery = (topic: string | string[]) => {
-  const query = `*[_type == "Post" && topic match '${topic}*'] {
+export const TopicPostsQuery = (Topic: string | string[]) => {
+  const query = `*[_type == "Post" && topic match '${Topic}*'] {
     _id,
      Caption,
        Video{

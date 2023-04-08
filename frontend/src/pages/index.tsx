@@ -14,7 +14,7 @@ const Home = ({ Videos }: IProps) => {
   return (
     <>
       <Head>
-        <title>Soft-Media v2 - Your Social Media</title>
+        <title>Soft-Media v2 - Your Videos Social Media</title>
         <meta
           name="description"
           content="A social media web application (Exclusively for Videos) where Videos can be viewed, uploaded and downloaded."
