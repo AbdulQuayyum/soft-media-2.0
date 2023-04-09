@@ -37,30 +37,30 @@ const Profile = ({ data }: IProps) => {
 
   return (
     <div className="w-full">
-      <div className="flex gap-6 md:gap-10 mb-4 bg-white w-full">
+      <div className="flex w-full gap-6 mb-4 bg-white md:gap-10">
         <div className="w-16 h-16 md:w-32 md:h-32">
           <Image
             width={120}
             height={120}
             className="rounded-full"
-            src={User.Image}
+            src={User?.Image}
             alt="User-profile"
           />
         </div>
 
         <div>
-          <div className="text-md md:text-2xl font-bold tracking-wider flex gap-2 items-center justify-center lowercase">
-            <span>{User.UserName.replace(/\s+/g, '')} </span>
+          <div className="flex items-center justify-center gap-2 font-bold tracking-wider lowercase text-md md:text-2xl">
+            <span>{User?.UserName.replace(/\s+/g, '')} </span>
             {/* <GoVerified className='text-blue-400 md:text-xl text-md' /> */}
-            {User.UserName === 'Abdul-Quayyum' ? (
+            {User?.UserName === 'Abdul-Quayyum' ? (
               <GoVerified className="text-blue-400 md:text-xl text-md" />
             ) : null}
           </div>
-          <p className="text-sm font-medium"> {User.UserName}</p>
+          <p className="text-sm font-medium"> {User?.UserName}</p>
         </div>
       </div>
       <div>
-        <div className="flex gap-10 mb-10 mt-10 border-b-2 border-gray-200 bg-white w-full">
+        <div className="flex w-full gap-10 mt-10 mb-10 bg-white border-b-2 border-gray-200">
           <p
             className={`text-xl font-semibold cursor-pointer ${videos} mt-2`}
             onClick={() => setShowUserVideos(true)}
@@ -74,7 +74,7 @@ const Profile = ({ data }: IProps) => {
             Liked
           </p>
         </div>
-        <div className="flex gap-6 flex-wrap md:justify-start">
+        <div className="flex flex-wrap gap-6 md:justify-start">
           {videosList.length > 0 ? (
             videosList.map((post: Video, idx: number) => (
               <VideoCard key={idx} Post={post} />

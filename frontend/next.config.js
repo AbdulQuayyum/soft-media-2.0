@@ -9,12 +9,7 @@ const nextConfig = {
       'image.shutterstock.com',
       'i.pinimg.com',
       'cdn.sanity.io'
-    ],
-    videos: {
-      domains: [
-        'cdn.sanity.io'
-      ]
-    }
+    ]
   },
 }
 

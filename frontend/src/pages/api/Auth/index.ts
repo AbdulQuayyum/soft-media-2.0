@@ -6,20 +6,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  try {
-    if (req.method === 'POST') {
-      const doc = req.body
+  if (req.method === 'POST') {
+    const User = req.body
 
-      // console.log(doc)
+    // console.log(User)
 
-      Client.createIfNotExists(doc).then(() => {
-        res.status(200).json('Login successful')
-        res.end()
-      })
-    }
-  } catch (err) {
-    res.status(500).json({ error: 'failed to load data' })
-    res.end()
+    Client.createIfNotExists(User).then(() => {
+      res.status(200).json('Login successful')
+      res.end()
+    })
   }
 }
 

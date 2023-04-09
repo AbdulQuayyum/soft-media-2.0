@@ -6,6 +6,7 @@ import { AiOutlineLogout } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import { IoMdAdd } from 'react-icons/io'
 import { GoogleLogin, googleLogout } from '@react-oauth/google'
+import cogoToast from 'cogo-toast'
 
 import { CreateOrGetUser } from '../Utilities/Index'
 import { IUser } from '../../types'
@@ -31,21 +32,16 @@ const Navbar = () => {
   }
 
   return (
-    <div className="w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4">
+    <div className="flex items-center justify-between w-full px-4 py-2 border-b-2 border-gray-200">
       <Link href="/">
         <div className="w-[30px] md:w-[40px] md:h-[40px] h-[30px]">
-          <Image
-            className="cursor-pointer"
-            src={Logo}
-            alt="logo"
-            
-          />
+          <Image className="cursor-pointer" src={Logo} alt="logo" />
         </div>
       </Link>
       <div className="relative hidden md:block">
         <form
           onSubmit={HandleSearch}
-          className="absolute md:static top-10 -left-20 bg-white"
+          className="absolute bg-white md:static top-10 -left-20"
         >
           <input
             value={searchValue}
@@ -55,7 +51,7 @@ const Navbar = () => {
           />
           <button
             onClick={HandleSearch}
-            className="absolute md:right-5 right-6 top-4 border-l-2 border-gray-300 pl-4 text-2xl text-gray-400"
+            className="absolute pl-4 text-2xl text-gray-400 border-l-2 border-gray-300 md:right-5 right-6 top-4"
           >
             <BiSearch />
           </button>
@@ -65,7 +61,7 @@ const Navbar = () => {
         {User ? (
           <div className="flex items-center gap-5 md:gap-10">
             <Link href="/Upload">
-              <button className="bg-primary rounded-full border-2 px-4 md:px-8 py-3 text-md font-semibold flex items-center gap-2">
+              <button className="flex items-center gap-2 px-4 py-3 font-semibold border-2 rounded-full bg-primary md:px-8 text-md">
                 <IoMdAdd className="text-xl" />{' '}
                 <span className="hidden md:block">Upload </span>
               </button>
@@ -86,7 +82,7 @@ const Navbar = () => {
             )}
             <button
               type="button"
-              className=" border-2 p-3 rounded-full cursor-pointer outline-none shadow-md"
+              className="p-3 border-2 rounded-full shadow-md outline-none cursor-pointer "
               onClick={() => {
                 googleLogout()
                 RemoveUser()
@@ -98,8 +94,13 @@ const Navbar = () => {
           </div>
         ) : (
           <GoogleLogin
-            onSuccess={(response) => CreateOrGetUser(response, AddUser)}
-            onError={() => console.log('Login Failed')}
+            onSuccess={response => { CreateOrGetUser(response, AddUser)}}
+            onError={() => {
+              cogoToast.error('Please try again', {
+                position: 'top-right',
+                heading: 'Login Failed',
+              })
+            }}
             shape="circle"
             size="large"
             text="continue_with"
