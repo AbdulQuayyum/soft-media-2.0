@@ -35,7 +35,7 @@ export const AllPostsQuery = () => {
   }`
 
   return query
-}
+};
 
 export const PostDetailQuery = (PostID: string | string[]) => {
   const query = `*[_type == "Post" && _id == '${PostID}']{
@@ -72,7 +72,7 @@ export const PostDetailQuery = (PostID: string | string[]) => {
     }
   }`
   return query
-}
+};
 
 export const SearchPostsQuery = (SearchTerm: string | string[]) => {
   const query = `*[_type == "Post" && Caption match '${SearchTerm}*' || topic match '${SearchTerm}*'] {
@@ -110,19 +110,19 @@ Save[]{
     }
   }`
   return query
-}
+};
 
 export const SingleUserQuery = (UserID: string | string[]) => {
   const query = `*[_type == "User" && _id == '${UserID}']`
 
   return query
-}
+};
 
 export const AllUsersQuery = () => {
   const query = `*[_type == "User"]`
 
   return query
-}
+};
 
 export const UserCreatedPostsQuery = (UserID: string | string[]) => {
   const query = `*[ _type == 'Post' && UserID == '${UserID}'] | order(_createdAt desc){
@@ -161,7 +161,7 @@ export const UserCreatedPostsQuery = (UserID: string | string[]) => {
   }`
 
   return query
-}
+};
 
 export const UserLikedPostsQuery = (UserID: string | string[]) => {
   const query = `*[_type == 'Post' && '${UserID}' in Likes[]._ref ] | order(_createdAt desc) {
@@ -200,7 +200,7 @@ export const UserLikedPostsQuery = (UserID: string | string[]) => {
   }`
 
   return query
-}
+};
 
 export const TopicPostsQuery = (Topic: string | string[]) => {
   const query = `*[_type == "Post" && topic match '${Topic}*'] {
@@ -239,4 +239,4 @@ export const TopicPostsQuery = (Topic: string | string[]) => {
   }`
 
   return query
-}
+};

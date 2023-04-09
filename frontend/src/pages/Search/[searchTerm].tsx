@@ -88,7 +88,7 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
       )}
     </div>
   )
-}
+};
 
 export const getServerSideProps = async ({
   params: { SearchTerm },
@@ -102,4 +102,4 @@ export const getServerSideProps = async ({
   }
 }
 
-export default Search
+export default Search;

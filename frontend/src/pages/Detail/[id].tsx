@@ -165,7 +165,7 @@ const Detail = ({ PostDetails }: IProps) => {
       )}
     </>
   )
-}
+};
 
 export const getServerSideProps = async ({
   params: { id },
@@ -179,4 +179,4 @@ export const getServerSideProps = async ({
   }
 }
 
-export default Detail
+export default Detail;

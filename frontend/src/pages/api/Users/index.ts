@@ -18,10 +18,10 @@ export default async function handler(
     res.json([])
     res.end()
   }
-}
+};
 
 export const config = {
   api: {
     externalResolver: true,
   },
-}
+};

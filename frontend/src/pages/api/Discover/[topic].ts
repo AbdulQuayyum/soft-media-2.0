@@ -22,10 +22,10 @@ export default async function handler(
     res.status(500).json({ error: 'failed to load data' })
     res.end()
   }
-}
+};
 
 export const config = {
   api: {
     externalResolver: true,
   },
-}
+};

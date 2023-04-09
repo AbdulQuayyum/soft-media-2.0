@@ -80,7 +80,7 @@ export const Topics = [
     name: 'sports',
     icon: <FaMedal />,
   },
-]
+];
 
 export const FooterList1 = [
   'About',
@@ -89,13 +89,13 @@ export const FooterList1 = [
   'Contact',
   'Careers',
   'Creator Directory',
-]
+];
 export const FooterList2 = [
   'Advertise',
   'Developers',
   'Transparency',
   'Soft-Media 2.0 Rewards',
-]
+];
 export const FooterList3 = [
   'Help',
   'Safety',
@@ -103,4 +103,4 @@ export const FooterList3 = [
   'Privacy',
   'Creator Portal',
   'Community Guidelines',
-]
+];

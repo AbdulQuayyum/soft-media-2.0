@@ -88,7 +88,7 @@ const Profile = ({ data }: IProps) => {
       </div>
     </div>
   )
-}
+};
 
 export const getServerSideProps = async ({
   params: { UserID },
@@ -101,4 +101,4 @@ export const getServerSideProps = async ({
     props: { data: res.data },
   }
 }
-export default Profile
+export default Profile;

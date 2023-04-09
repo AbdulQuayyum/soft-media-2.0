@@ -14,4 +14,4 @@ export const Client = sanityClient({
   projectId,
   ignoreBrowserTokenWarning: true,
   useCdn: false,
-})
+});

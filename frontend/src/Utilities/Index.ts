@@ -1,7 +1,7 @@
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 
-export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const CreateOrGetUser = async (response: any, AddUser: any) => {
   // var base64Url = response.credential.split('.')[1]
@@ -20,7 +20,7 @@ export const CreateOrGetUser = async (response: any, AddUser: any) => {
   const decoded: { name: string; picture: string; sub: string } = jwt_decode(
     response.credential,
   )
-  localStorage.setItem('User', JSON.stringify(decoded))
+  // localStorage.setItem('User', JSON.stringify(decoded))
   const { name, picture, sub } = decoded
 
   const User = {
@@ -30,7 +30,7 @@ export const CreateOrGetUser = async (response: any, AddUser: any) => {
     Image: picture,
   }
 
-  AddUser(User)
+  AddUser(User);
 
-  await axios.post(`${BASE_URL}/api/Auth`, User)
-}
+  await axios.post(`${BASE_URL}/api/Auth`, User);
+};

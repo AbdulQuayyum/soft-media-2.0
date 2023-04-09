@@ -17,10 +17,10 @@ export default async function handler(
     res.status(200).json(Videos)
     res.end()
   }
-}
+};
 
 export const config = {
   api: {
     externalResolver: true,
   },
-}
+};

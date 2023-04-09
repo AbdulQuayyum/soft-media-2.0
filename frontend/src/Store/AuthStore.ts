@@ -26,4 +26,4 @@ const UseAuthStore = create(
   }),
 )
 
-export default UseAuthStore
+export default UseAuthStore;
