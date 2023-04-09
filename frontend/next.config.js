@@ -8,7 +8,13 @@ const nextConfig = {
       'p16-amd-va.tiktokcdn.com',
       'image.shutterstock.com',
       'i.pinimg.com',
+      'cdn.sanity.io'
     ],
+    videos: {
+      domains: [
+        'cdn.sanity.io'
+      ]
+    }
   },
 }
 
