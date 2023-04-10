@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi'
 import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs'
 import { GoVerified } from 'react-icons/go'
-import { MdFavorite } from 'react-icons/md';
+import { MdFavorite } from 'react-icons/md'
 
 import { Video } from '../types'
 
@@ -41,12 +41,12 @@ const VideoCard: NextPage<IProps> = ({
 
   if (!isShowingOnHome) {
     return (
-      <div>
+      <div className=''>
         <Link href={`/Detail/${_id}`}>
           <video
             loop
             src={Video?.asset.url}
-            className="w-[250px] md:w-full rounded-xl cursor-pointer"
+            className="w-[200px] max-h-[300px] md:max-h-[400px] lg:max-h-[528px] sm:w-full rounded-xl cursor-pointer"
           ></video>
         </Link>
         <div className="flex items-center gap-2 ml-4 -mt-8">
@@ -76,7 +76,7 @@ const VideoCard: NextPage<IProps> = ({
                   height={62}
                   className="rounded-full "
                   src={PostedBy?.Image}
-                  alt="User-profile"              
+                  alt="User-profile"
                 />
               </>
             </Link>
