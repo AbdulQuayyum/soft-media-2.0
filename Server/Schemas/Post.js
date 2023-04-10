@@ -41,12 +41,7 @@ export default {
             name: 'Save',
             title: 'Save',
             type: 'array',
-            of: [
-                {
-                    type: 'reference',
-                    to: [{ type: 'User' }],
-                },
-            ],
+            of: [{ type: 'Save' }],
         },
         {
             name: 'Comments',

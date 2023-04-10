@@ -56,16 +56,16 @@ const Detail = ({ PostDetails }: IProps) => {
     }
   }
 
-  const HandleSave = async (Save: boolean) => {
-    if (UserProfile) {
-      const res = await axios.put(`${BASE_URL}/api/Save`, {
-        UserID: UserProfile._id,
-        PostID: Post._id,
-        Save,
-      })
-      setPost({ ...Post, Saves: res.data.Saves })
-    }
-  }
+  // const HandleSave = async (Save: boolean) => {
+  //   if (UserProfile) {
+  //     const res = await axios.put(`${BASE_URL}/api/Save`, {
+  //       UserID: UserProfile._id,
+  //       PostID: Post._id,
+  //       Save,
+  //     })
+  //     setPost({ ...Post, Saves: res.data.Saves })
+  //   }
+  // }
 
   const addComment = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
@@ -152,7 +152,7 @@ const Detail = ({ PostDetails }: IProps) => {
               <div className="px-10">
                 <p className="text-gray-600 text-md">{Post.Caption}</p>
               </div>
-              <div className="flex justify-between px-10 mt-10">
+              <div className="flex justify-between px-10 mt-4 ">
                 {UserProfile && (
                   <>
                     <LikeButton
@@ -161,12 +161,12 @@ const Detail = ({ PostDetails }: IProps) => {
                       HandleLike={() => HandleLike(true)}
                       HandleDislike={() => HandleLike(false)}
                     />
-                    <SaveButton
+                    {/* <SaveButton
                       Saves={Post.Saves}
                       flex="flex"
                       HandleSave={() => HandleSave(true)}
                       HandleUnSave={() => HandleSave(false)}
-                    />
+                    /> */}
                   </>
                 )}
               </div>
