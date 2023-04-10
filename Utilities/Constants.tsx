@@ -84,11 +84,9 @@ export const Topics = [
 
 export const FooterList1 = [
   'About',
-  'Newsroom',
-  'Store',
+  'Version',
   'Contact',
   'Careers',
-  'Creator Directory',
 ];
 export const FooterList2 = [
   'Advertise',
@@ -99,8 +97,7 @@ export const FooterList2 = [
 export const FooterList3 = [
   'Help',
   'Safety',
-  'Terms',
-  'Privacy',
-  'Creator Portal',
+  'Terms & Conditions',
+  'Privacy Policy',
   'Community Guidelines',
 ];

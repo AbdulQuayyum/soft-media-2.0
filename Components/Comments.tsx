@@ -73,7 +73,7 @@ const Comments = ({
             </>
           ))
         ) : (
-          <div className="flex flex-col items-center justify-center w-full h-full">
+          <div className="flex flex-col items-center justify-center w-full h-full mb-6 sm:mb-0">
             <p className="text-8xl">
               <FaRegCommentDots />
             </p>
