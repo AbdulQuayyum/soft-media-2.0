@@ -12,6 +12,7 @@ import {
   MdLibraryMusic,
   MdEmojiNature,
   MdOutlineVideoCameraBack,
+  MdEmojiEmotions
 } from 'react-icons/md'
 import { SlPicture } from 'react-icons/sl'
 
@@ -21,8 +22,12 @@ export const Topics = [
     icon: <MdPermMedia />,
   },
   {
-    name: 'Music',
+    name: 'music',
     icon: <MdLibraryMusic />,
+  },
+  {
+    name: 'emotions',
+    icon: <MdEmojiEmotions />,
   },
   {
     name: 'cats',
