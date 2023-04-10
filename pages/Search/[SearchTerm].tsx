@@ -17,15 +17,20 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
   const router = useRouter()
   const { SearchTerm }: any = router.query
 
-  const accounts = isAccounts ? 'border-b-2 border-black' : 'text-gray-400'
-  const isVideos = !isAccounts ? 'border-b-2 border-black' : 'text-gray-400'
+  const activeBtnStyles =
+    'bg-black text-white dark:text-black transition-all duration-500 dark:bg-white font-bold py-2 px-4 rounded-full w-22 outline-none'
+  const notActiveBtnStyles =
+    'bg-primary text-black transition-all duration-500 dark:text-white font-bold py-2 px-4 rounded-full w-22 outline-none'
+
+  const accounts = isAccounts ? activeBtnStyles : notActiveBtnStyles
+  const isVideos = !isAccounts ? activeBtnStyles : notActiveBtnStyles
   const searchedAccounts = AllUsers?.filter((User: IUser) =>
     User.UserName.toLowerCase().includes(SearchTerm),
   )
 
   return (
     <div className="w-full ">
-      <div className="z-50 flex w-full gap-10 mb-10 bg-white border-b-2 border-gray-200 md:fixed">
+      <div className="z-50 flex w-full gap-10 mb-10 bg-white border-gray-200 md:fixed">
         <p
           onClick={() => setIsAccounts(true)}
           className={`text-xl  font-semibold cursor-pointer ${accounts} mt-2`}
@@ -88,7 +93,7 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
       )}
     </div>
   )
-};
+}
 
 export const getServerSideProps = async ({
   params: { SearchTerm },
@@ -102,4 +107,4 @@ export const getServerSideProps = async ({
   }
 }
 
-export default Search;
+export default Search

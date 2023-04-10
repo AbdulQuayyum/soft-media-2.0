@@ -22,7 +22,7 @@ const Profile = ({ data }: IProps) => {
   const activeBtnStyles =
     'bg-black text-white dark:text-black transition-all duration-500 dark:bg-white font-bold py-2 px-4 rounded-full w-22 outline-none'
   const notActiveBtnStyles =
-    'bg-primary mr-4 text-black transition-all duration-500 dark:text-white font-bold py-2 px-4 rounded-full w-22 outline-none'
+    'bg-primary text-black transition-all duration-500 dark:text-white font-bold py-2 px-4 rounded-full w-22 outline-none'
 
   const { User, UserVideos, UserLikedVideos } = data
   const videos = showUserVideos ? activeBtnStyles : notActiveBtnStyles
@@ -58,11 +58,13 @@ const Profile = ({ data }: IProps) => {
               {' '}
               {User?.UserName}
             </p>
+            <div className='flex items-center'>
             <span>@{User?.UserName.replace(/\s+/g, '')} </span>
             {/* <GoVerified className='text-blue-400 md:text-xl text-md' /> */}
             {User?.UserName === 'Abdul-Quayyum Alao' ? (
               <GoVerified className="text-blue-400 md:text-xl text-md" />
             ) : null}
+            </div>
           </div>
         </div>
       </div>
