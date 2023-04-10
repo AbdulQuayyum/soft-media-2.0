@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdOutlineVideocamOff } from 'react-icons/md'
-import { TbError404 } from 'react-icons/TB'
+import { TbError404 } from 'react-icons/tb'
 
 interface IProps {
   text: string
