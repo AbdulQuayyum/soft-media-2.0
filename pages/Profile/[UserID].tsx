@@ -58,7 +58,7 @@ const Profile = ({ data }: IProps) => {
               {' '}
               {User?.UserName}
             </p>
-            <div className='flex items-center'>
+            <div className='flex items-center text-gray-400'>
             <span>@{User?.UserName.replace(/\s+/g, '')} </span>
             {/* <GoVerified className='text-blue-400 md:text-xl text-md' /> */}
             {User?.UserName === 'Abdul-Quayyum Alao' ? (
