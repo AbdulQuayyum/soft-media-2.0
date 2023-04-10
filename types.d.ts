@@ -19,10 +19,12 @@ export interface Video {
       Image: string
     }
   }[]
-  Save: {
+  Saves: {
     _key: string
     PostedBy: {
-      _ref: string
+      _id: string
+      UserName: string
+      Image: string
     }
   }[]
   Comments: {

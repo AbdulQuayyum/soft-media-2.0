@@ -25,17 +25,17 @@ const LikeButton: NextPage<IProps> = ({ Likes, flex, HandleLike, HandleDislike }
 
   return (
     <div className={`${flex} gap-6`}>
-      <div className='mt-4 flex flex-col justify-center items-center cursor-pointer'>
+      <div className='flex flex-col items-center justify-center mt-4 cursor-pointer'>
         {alreadyLiked ? (
-          <div className='bg-primary rounded-full p-2 md:p-4 text-[#F51997] ' onClick={HandleDislike} >
+          <div className='p-2 text-blue-700 rounded-full bg-primary md:p-4 ' onClick={HandleDislike} >
             <MdFavorite className='text-lg md:text-2xl' />
           </div>
         ) : (
-          <div className='bg-primary rounded-full p-2 md:p-4 ' onClick={HandleLike} >
+          <div className='p-2 rounded-full bg-primary md:p-4 ' onClick={HandleLike} >
             <MdFavorite className='text-lg md:text-2xl' />
           </div>
         )}
-        <p className='text-md font-semibold '>{Likes?.length || 0}</p>
+        <p className='font-semibold text-md '>{Likes?.length || 0}</p>
       </div>
     </div>
   );

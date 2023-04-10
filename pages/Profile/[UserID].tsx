@@ -19,9 +19,14 @@ const Profile = ({ data }: IProps) => {
   const [showUserVideos, setShowUserVideos] = useState<Boolean>(true)
   const [videosList, setVideosList] = useState<Video[]>([])
 
+  const activeBtnStyles =
+    'bg-black text-white dark:text-black transition-all duration-500 dark:bg-white font-bold py-2 px-4 rounded-full w-22 outline-none'
+  const notActiveBtnStyles =
+    'bg-primary mr-4 text-black transition-all duration-500 dark:text-white font-bold py-2 px-4 rounded-full w-22 outline-none'
+
   const { User, UserVideos, UserLikedVideos } = data
-  const videos = showUserVideos ? 'border-b-2 border-black' : 'text-gray-400'
-  const liked = !showUserVideos ? 'border-b-2 border-black' : 'text-gray-400'
+  const videos = showUserVideos ? activeBtnStyles : notActiveBtnStyles
+  const liked = !showUserVideos ? activeBtnStyles : notActiveBtnStyles
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -37,7 +42,7 @@ const Profile = ({ data }: IProps) => {
 
   return (
     <div className="w-full">
-      <div className="flex w-full gap-6 mb-4 bg-white md:gap-10">
+      <div className="relative flex flex-col items-center justify-center mb-7 md:gap-2">
         <div className="w-16 h-16 md:w-32 md:h-32">
           <Image
             width={120}
@@ -47,20 +52,22 @@ const Profile = ({ data }: IProps) => {
             alt="User-profile"
           />
         </div>
-
         <div>
-          <div className="flex items-center justify-center gap-2 font-bold tracking-wider lowercase text-md md:text-2xl">
-            <span>{User?.UserName.replace(/\s+/g, '')} </span>
+          <div className="flex flex-col items-center justify-center gap-2 text-sm font-bold tracking-wider lowercase md:text-xl">
+            <p className="font-bold capitalize md:text-2xl text-md">
+              {' '}
+              {User?.UserName}
+            </p>
+            <span>@{User?.UserName.replace(/\s+/g, '')} </span>
             {/* <GoVerified className='text-blue-400 md:text-xl text-md' /> */}
             {User?.UserName === 'Abdul-Quayyum Alao' ? (
               <GoVerified className="text-blue-400 md:text-xl text-md" />
             ) : null}
           </div>
-          <p className="text-sm font-medium"> {User?.UserName}</p>
         </div>
       </div>
       <div>
-        <div className="flex w-full gap-10 mt-10 mb-10 bg-white border-b-2 border-gray-200">
+        <div className="flex justify-center w-full gap-10 mt-10 mb-10">
           <p
             className={`text-xl font-semibold cursor-pointer ${videos} mt-2`}
             onClick={() => setShowUserVideos(true)}
@@ -88,7 +95,7 @@ const Profile = ({ data }: IProps) => {
       </div>
     </div>
   )
-};
+}
 
 export const getServerSideProps = async ({
   params: { UserID },
@@ -101,4 +108,4 @@ export const getServerSideProps = async ({
     props: { data: res.data },
   }
 }
-export default Profile;
+export default Profile

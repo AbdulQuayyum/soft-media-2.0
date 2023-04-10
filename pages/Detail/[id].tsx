@@ -9,7 +9,7 @@ import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi'
 import axios from 'axios'
 
 import { BASE_URL } from '../../Utilities/Index'
-import { Comments, LikeButton } from '../../Components/Index'
+import { Comments, LikeButton, SaveButton } from '../../Components/Index'
 import { Video } from '../../types'
 import UseAuthStore from '../../Store/AuthStore'
 
@@ -53,6 +53,17 @@ const Detail = ({ PostDetails }: IProps) => {
         Like,
       })
       setPost({ ...Post, Likes: res.data.Likes })
+    }
+  }
+
+  const HandleSave = async (Save: boolean) => {
+    if (UserProfile) {
+      const res = await axios.put(`${BASE_URL}/api/Save`, {
+        UserID: UserProfile._id,
+        PostID: Post._id,
+        Save,
+      })
+      setPost({ ...Post, Saves: res.data.Saves })
     }
   }
 
@@ -141,14 +152,22 @@ const Detail = ({ PostDetails }: IProps) => {
               <div className="px-10">
                 <p className="text-gray-600 text-md">{Post.Caption}</p>
               </div>
-              <div className="px-10 mt-10">
+              <div className="flex justify-between px-10 mt-10">
                 {UserProfile && (
-                  <LikeButton
-                    Likes={Post.Likes}
-                    flex="flex"
-                    HandleLike={() => HandleLike(true)}
-                    HandleDislike={() => HandleLike(false)}
-                  />
+                  <>
+                    <LikeButton
+                      Likes={Post.Likes}
+                      flex="flex"
+                      HandleLike={() => HandleLike(true)}
+                      HandleDislike={() => HandleLike(false)}
+                    />
+                    <SaveButton
+                      Saves={Post.Saves}
+                      flex="flex"
+                      HandleSave={() => HandleSave(true)}
+                      HandleUnSave={() => HandleSave(false)}
+                    />
+                  </>
                 )}
               </div>
               <Comments
@@ -164,7 +183,7 @@ const Detail = ({ PostDetails }: IProps) => {
       )}
     </>
   )
-};
+}
 
 export const getServerSideProps = async ({
   params: { id },
@@ -178,4 +197,4 @@ export const getServerSideProps = async ({
   }
 }
 
-export default Detail;
+export default Detail
