@@ -35,7 +35,7 @@ module.exports = {
       },
       backgroundImage: {
         'blurred-img':
-          "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsaaJ7s4lqcBF4IDROVPzrlL5fexcwRmDlnuEYQenWTt1DejFY5kmYDref2a0Hp2eE4aw&usqp=CAU')",
+          "url('https://images8.alphacoders.com/380/380542.jpg')",
       },
     },
   },

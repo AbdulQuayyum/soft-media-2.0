@@ -11,7 +11,7 @@ import axios from 'axios'
 
 import { BASE_URL } from '../../Utilities/Index'
 import { Comments, LikeButton } from '../../Components/Index'
-import { Video } from '../../../types'
+import { Video } from '../../types'
 import UseAuthStore from '../../Store/AuthStore'
 
 interface IProps {
@@ -46,7 +46,7 @@ const Detail = ({ PostDetails }: IProps) => {
     }
   }, [Post, isVideoMuted])
 
-  const handleLike = async (Like: boolean) => {
+  const HandleLike = async (Like: boolean) => {
     if (UserProfile) {
       const res = await axios.put(`${BASE_URL}/api/Like`, {
         UserID: UserProfile._id,
@@ -78,9 +78,9 @@ const Detail = ({ PostDetails }: IProps) => {
   return (
     <>
       {Post && (
-        <div className="flex w-full absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
+        <div className="absolute top-0 left-0 flex flex-wrap w-full bg-white lg:flex-nowrap">
           <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-blurred-img bg-no-repeat bg-cover bg-center">
-            <div className="opacity-90 absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
+            <div className="absolute z-50 flex gap-6 opacity-90 top-6 left-2 lg:left-6">
               <p className="cursor-pointer " onClick={() => router.back()}>
                 <BiArrowBack className="text-white text-[35px] hover:opacity-90" />
               </p>
@@ -92,34 +92,34 @@ const Detail = ({ PostDetails }: IProps) => {
                   onClick={onVideoClick}
                   loop
                   src={Post?.Video?.asset.url}
-                  className=" h-full cursor-pointer"
+                  className="h-full cursor-pointer "
                 ></video>
               </div>
 
               <div className="absolute top-[45%] left-[40%]  cursor-pointer">
                 {!isPlaying && (
                   <button onClick={onVideoClick}>
-                    <BsFillPlayFill className="text-white text-6xl lg:text-8xl" />
+                    <BsFillPlayFill className="text-6xl text-white lg:text-8xl" />
                   </button>
                 )}
               </div>
             </div>
-            <div className="absolute bottom-5 lg:bottom-10 right-5 lg:right-10  cursor-pointer">
+            <div className="absolute cursor-pointer bottom-5 lg:bottom-10 right-5 lg:right-10">
               {isVideoMuted ? (
                 <button onClick={() => setIsVideoMuted(false)}>
-                  <HiVolumeOff className="text-white text-3xl lg:text-4xl" />
+                  <HiVolumeOff className="text-3xl text-white lg:text-4xl" />
                 </button>
               ) : (
                 <button onClick={() => setIsVideoMuted(true)}>
-                  <HiVolumeUp className="text-white text-3xl lg:text-4xl" />
+                  <HiVolumeUp className="text-3xl text-white lg:text-4xl" />
                 </button>
               )}
             </div>
           </div>
           <div className="relative w-[1000px] md:w-[900px] lg:w-[700px]">
-            <div className="lg:mt-20 mt-10">
+            <div className="mt-10 lg:mt-20">
               <Link href={`/Profile/${Post.PostedBy._id}`}>
-                <div className="flex gap-4 mb-4 bg-white w-full pl-10 cursor-pointer">
+                <div className="flex w-full gap-4 pl-10 mb-4 bg-white cursor-pointer">
                   <Image
                     width={60}
                     height={60}
@@ -128,11 +128,11 @@ const Detail = ({ PostDetails }: IProps) => {
                     src={Post.PostedBy.Image}
                   />
                   <div>
-                    <div className="text-xl font-bold lowercase tracking-wider flex gap-2 items-center justify-center">
+                    <div className="flex items-center justify-center gap-2 text-xl font-bold tracking-wider lowercase">
                       {Post.PostedBy.UserName.replace(/\s+/g, '')}{' '}
-                      {/* <GoVerified className="text-blue-400 text-xl" /> */}
-                      {Post.PostedBy.UserName === 'Abdul-Quayyum' ? (
-                        <GoVerified className="text-blue-400 text-xl" />
+                      {/* <GoVerified className="text-xl text-blue-400" /> */}
+                      {Post.PostedBy.UserName === 'Abdul-Quayyum Alao' ? (
+                        <GoVerified className="text-xl text-blue-400" />
                       ) : null}
                     </div>
                     <p className="text-md"> {Post.PostedBy.UserName}</p>
@@ -140,15 +140,15 @@ const Detail = ({ PostDetails }: IProps) => {
                 </div>
               </Link>
               <div className="px-10">
-                <p className=" text-md text-gray-600">{Post.Caption}</p>
+                <p className="text-gray-600 text-md">{Post.Caption}</p>
               </div>
-              <div className="mt-10 px-10">
+              <div className="px-10 mt-10">
                 {UserProfile && (
                   <LikeButton
                     Likes={Post.Likes}
                     flex="flex"
-                    handleLike={() => handleLike(true)}
-                    handleDislike={() => handleLike(false)}
+                    HandleLike={() => HandleLike(true)}
+                    HandleDislike={() => HandleLike(false)}
                   />
                 )}
               </div>

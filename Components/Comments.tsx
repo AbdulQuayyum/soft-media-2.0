@@ -2,9 +2,9 @@ import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { GoVerified } from 'react-icons/go'
+import { FaRegCommentDots } from 'react-icons/fa'
 
 import { IUser } from '../types'
-import NoResults from './NoResults'
 import UseAuthStore from '../Store/AuthStore'
 
 interface IProps {
@@ -56,7 +56,7 @@ const Comments = ({
                           <p className="flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-primary">
                             {User.UserName}{' '}
                             {/* <GoVerified className="text-blue-400" /> */}
-                            {User.UserName === 'Abdul-Quayyum' ? (
+                            {User.UserName === 'Abdul-Quayyum Alao' ? (
                               <GoVerified className="text-blue-400" />
                             ) : null}
                           </p>
@@ -73,7 +73,12 @@ const Comments = ({
             </>
           ))
         ) : (
-          <NoResults text="No Comments Yet! Be First to do add the Comment." />
+          <div className="flex flex-col items-center justify-center w-full h-full">
+          <p className="text-8xl">
+            <FaRegCommentDots />
+          </p>
+          <p className="text-2xl text-center">No Comments Yet! Be First to add a Comment.</p>
+        </div>
         )}
       </div>
       {UserProfile && (

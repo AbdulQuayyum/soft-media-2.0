@@ -87,7 +87,7 @@ const VideoCard: NextPage<IProps> = ({
                 <p className="flex items-center gap-2 font-bold md:text-md text-primary">
                   {PostedBy?.UserName}{' '}
                   {/* <GoVerified className="text-blue-400 text-md" /> */}
-                  {PostedBy?.UserName === 'Abdul-Quayyum' ? (
+                  {PostedBy?.UserName === 'Abdul-Quayyum Alao' ? (
                     <GoVerified className="text-blue-400 text-md" />
                   ) : null}
                 </p>
