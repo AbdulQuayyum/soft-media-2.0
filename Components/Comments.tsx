@@ -41,7 +41,7 @@ const Comments = ({
                 (User: IUser) =>
                   User._id === (item.PostedBy._ref || item.PostedBy._id) && (
                     <div className="items-center p-2 " key={idx}>
-                      <Link href={`/profile/${User._id}`}>
+                      <Link href={`/Profile/${User._id}`}>
                         <div className="flex items-start gap-3">
                           <div className="w-12 h-12">
                             <Image
@@ -74,23 +74,37 @@ const Comments = ({
           ))
         ) : (
           <div className="flex flex-col items-center justify-center w-full h-full">
-          <p className="text-8xl">
-            <FaRegCommentDots />
-          </p>
-          <p className="text-2xl text-center">No Comments Yet! Be First to add a Comment.</p>
-        </div>
+            <p className="text-8xl">
+              <FaRegCommentDots />
+            </p>
+            <p className="text-2xl text-center">
+              No Comments Yet! Be First to add a Comment.
+            </p>
+          </div>
         )}
       </div>
       {UserProfile && (
         <div className="absolute bottom-0 left-0 px-2 pb-6 md:px-10 ">
-          <form onSubmit={addComment} className="flex gap-4">
+          <form onSubmit={addComment} className="flex flex-wrap gap-4">
+            <Link href={`/Profile/${UserProfile._id}`}>
+              <Image
+                width={40}
+                height={40}
+                className="rounded-full cursor-pointer"
+                src={UserProfile.Image}
+                alt="User-profile"
+              />
+            </Link>
             <input
               value={Comment}
               onChange={(e) => setComment(e.target.value.trim())}
-              className="bg-primary px-6 py-4 text-md font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg"
-              placeholder="Add Comment.."
+              className="flex-1 border-2 border-gray-100 outline-none rounded-2xl focus:border-gray-300 px-6 py-2 text-md font-medium w-[250px] md:w-[700px] lg:w-[350px] focus:outline-none focus:border-2"
+              placeholder="Add a comment.."
             />
-            <button className="text-gray-400 text-md " onClick={addComment}>
+            <button
+              className="px-6 py-2 text-base font-semibold text-white transition-all duration-500 bg-blue-700 rounded-full outline-none text-md dark:text-black dark:bg-white"
+              onClick={addComment}
+            >
               {isPostingComment ? 'Commenting...' : 'Comment'}
             </button>
           </form>

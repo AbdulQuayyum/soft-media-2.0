@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi'
 import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs'
 import { GoVerified } from 'react-icons/go'
-import { BsPlay } from 'react-icons/bs'
+import { MdFavorite } from 'react-icons/md';
 
 import { Video } from '../types'
 
@@ -51,7 +51,7 @@ const VideoCard: NextPage<IProps> = ({
         </Link>
         <div className="flex items-center gap-2 ml-4 -mt-8">
           <p className="flex items-center gap-1 text-lg font-medium text-white">
-            <BsPlay className="text-2xl" />
+            <MdFavorite className="text-2xl" />
             {Likes?.length || 0}
           </p>
         </div>

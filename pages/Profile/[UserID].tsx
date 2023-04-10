@@ -4,7 +4,7 @@ import { GoVerified } from 'react-icons/go'
 import axios from 'axios'
 
 import { BASE_URL } from '../../Utilities/Index'
-import { IUser, Video } from '../../../types'
+import { IUser, Video } from '../../types'
 import { NoResults, VideoCard } from '../../Components/Index'
 
 interface IProps {
