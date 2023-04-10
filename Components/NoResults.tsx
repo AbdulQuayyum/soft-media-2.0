@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdOutlineVideocamOff } from 'react-icons/md'
+import { TbError404 } from 'react-icons/TB'
 
 interface IProps {
   text: string
@@ -7,9 +8,9 @@ interface IProps {
 
 const NoResults = ({ text }: IProps) => {
   return (
-    <div className="flex flex-col justify-center items-center h-full w-full">
+    <div className="flex flex-col items-center justify-center w-full h-full">
       <p className="text-8xl">
-        <MdOutlineVideocamOff />
+        <TbError404 />
       </p>
       <p className="text-2xl text-center">{text}</p>
     </div>

@@ -41,15 +41,15 @@ const SuggestedAccounts: NextPage<IProps> = ({ FetchAllUsers, AllUsers }) => {
               </div>
 
               <div className="hidden xl:block">
-                <p className="flex items-center gap-1 font-bold lowercase text-md text-primary">
-                  {User.UserName.replace(/\s+/g, '')}{' '}
+                <p className="capitalize text-md text-primary">
+                  {User.UserName}
+                </p>
+                <p className="flex items-center gap-1 text-xs font-bold text-gray-400 lowercase">
+                  @{User.UserName.replace(/\s+/g, '')}{' '}
                   {/* <GoVerified className='text-blue-400' /> */}
                   {User.UserName === 'Abdul-Quayyum Alao' ? (
                     <GoVerified className="text-blue-400" />
                   ) : null}
-                </p>
-                <p className="text-xs text-gray-400 capitalize">
-                  {User.UserName}
                 </p>
               </div>
             </div>

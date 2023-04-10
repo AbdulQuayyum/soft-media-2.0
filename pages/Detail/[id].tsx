@@ -138,14 +138,14 @@ const Detail = ({ PostDetails }: IProps) => {
                     src={Post.PostedBy.Image}
                   />
                   <div>
-                    <div className="flex items-center justify-center gap-2 text-xl font-bold tracking-wider lowercase">
-                      {Post.PostedBy.UserName.replace(/\s+/g, '')}{' '}
+                    <p className="text-xl font-bold"> {Post.PostedBy.UserName}</p>
+                    <div className="flex items-center gap-2 text-sm tracking-wider lowercase">
+                      @{Post.PostedBy.UserName.replace(/\s+/g, '')}{' '}
                       {/* <GoVerified className="text-xl text-blue-400" /> */}
                       {Post.PostedBy.UserName === 'Abdul-Quayyum Alao' ? (
                         <GoVerified className="text-xl text-blue-400" />
                       ) : null}
                     </div>
-                    <p className="text-md"> {Post.PostedBy.UserName}</p>
                   </div>
                 </div>
               </Link>

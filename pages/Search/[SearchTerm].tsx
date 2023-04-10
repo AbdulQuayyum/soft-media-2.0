@@ -63,13 +63,13 @@ const Search = ({ Videos }: { Videos: Video[] }) => {
                     <div>
                       <p className="flex items-center gap-1 text-lg font-bold text-primary">
                         {User.UserName}
+                      </p>
+                      <p className="flex items-center gap-1 text-sm font-bold text-gray-400 lowercase">
+                        @{User.UserName.replace(/\s+/g, '')}{' '}
                         {/* <GoVerified className="text-blue-400" /> */}
                         {User.UserName === 'Abdul-Quayyum Alao' ? (
                           <GoVerified className="text-blue-400" />
                         ) : null}
-                      </p>
-                      <p className="text-sm text-gray-400 capitalize">
-                        {User.UserName}
                       </p>
                     </div>
                   </div>
