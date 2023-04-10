@@ -9,7 +9,7 @@ import { GoogleLogin, googleLogout } from '@react-oauth/google'
 import cogoToast from 'cogo-toast'
 
 import { CreateOrGetUser } from '../Utilities/Index'
-import { IUser } from '../../types'
+import { IUser } from '../types'
 import Logo from '../Utilities/logo.png'
 import UseAuthStore from '../Store/AuthStore'
 

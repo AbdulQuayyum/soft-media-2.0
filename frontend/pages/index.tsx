@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 import { BASE_URL } from '../Utilities/Index'
 import { NoResults, VideoCard } from '../Components/Index'
-import { Video } from '../../types'
+import { Video } from '../types'
 
 interface IProps {
   Videos: Video[]
@@ -22,7 +22,7 @@ const Home = ({ Videos }: IProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="/logo.png" />
       </Head>
-      <div className="flex flex-col gap-10 videos h-full">
+      <div className="flex flex-col h-full gap-10 videos">
         {Videos?.length ? (
           Videos?.map((Video: Video) => (
             <VideoCard Post={Video} isShowingOnHome key={Video._id} />
